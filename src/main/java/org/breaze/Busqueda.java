@@ -38,4 +38,20 @@ public class Busqueda {
             }
         }
     }
+
+    public void sort2(int[] arreglo) {
+        for (int i = 1; i < arreglo.length; i++) {
+            int valorActual = arreglo[i];
+            int j = i - 1;
+
+            // Desplaza los elementos que son mayores al valorActual
+            // una posición adelante de su posición actual
+            while (j >= 0 && arreglo[j] > valorActual) {
+                arreglo[j + 1] = arreglo[j];
+                j--;
+            }
+            // Inserta el valorActual en su posición correcta
+            arreglo[j + 1] = valorActual;
+        }
+    }
 }
