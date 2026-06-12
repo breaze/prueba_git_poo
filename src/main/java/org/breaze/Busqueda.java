@@ -38,25 +38,20 @@ public class Busqueda {
             }
         }
     }
+
     public void sort2(int[] arreglo) {
-        int n = arreglo.length;
-        if (n <= 1) return;
+        for (int i = 1; i < arreglo.length; i++) {
+            int valorActual = arreglo[i];
+            int j = i - 1;
 
-        // Arreglo auxiliar para realizar las fusiones
-        int[] temp = new int[n];
-
-        // Tamaño de los subarreglos a fusionar (1, 2, 4, 8, etc.)
-        for (int currSize = 1; currSize < n; currSize = 2 * currSize) {
-
-            // Elegir punto de inicio de diferentes subarreglos de tamaño currSize
-            for (int leftStart = 0; leftStart < n - 1; leftStart += 2 * currSize) {
-
-                int mid = Math.min(leftStart + currSize - 1, n - 1);
-                int rightEnd = Math.min(leftStart + 2 * currSize - 1, n - 1);
-
-                // Fusionar los subarreglos arr[leftStart...mid] y arr[mid+1...rightEnd]
-                //merge(arreglo, temp, leftStart, mid, rightEnd);
+            // Desplaza los elementos que son mayores al valorActual
+            // una posición adelante de su posición actual
+            while (j >= 0 && arreglo[j] > valorActual) {
+                arreglo[j + 1] = arreglo[j];
+                j--;
             }
+            // Inserta el valorActual en su posición correcta
+            arreglo[j + 1] = valorActual;
         }
     }
 }
