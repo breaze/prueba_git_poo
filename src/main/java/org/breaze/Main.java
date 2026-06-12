@@ -4,7 +4,6 @@ package org.breaze;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        System.out.println("Hola");
-        System.out.println("Mundo");
+
     }
 }
